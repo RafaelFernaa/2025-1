@@ -1,15 +1,20 @@
 #include <stdio.h>
+#include <string.h>
 
 int inverterNumero(int numero) {
-    int invertido = 0;
+    char numeroStr[20];  // Buffer para armazenar o número como string
+    sprintf(numeroStr, "%d", numero);
     
-    while (numero > 0) {
-        int digito = numero % 10;
-        
-        invertido = invertido * 10 + digito;
-        
-        numero = numero / 10;
+    int tamanho = strlen(numeroStr);
+    char invertidoStr[20];  // Buffer para armazenar o número invertido
+    
+    for (int i = 0; i < tamanho; i++) {
+        invertidoStr[i] = numeroStr[tamanho - 1 - i];
     }
+    invertidoStr[tamanho] = '\0';  // Adicionar o terminador de string
+    
+    int invertido;
+    sscanf(invertidoStr, "%d", &invertido);
     
     return invertido;
 }
@@ -28,8 +33,29 @@ int main() {
     
     int invertido = inverterNumero(numero);
     
-    printf("Número original: %d\n", numero);
-    printf("Número invertido: %d\n", invertido);
+    printf("Numero original: ");
+    
+    char numeroStr[20];
+    sprintf(numeroStr, "%d", numero);
+    printf("%s\n", numeroStr);
+    
+    printf("Numero invertido: ");
+    char invertidoStr[20];
+    sprintf(invertidoStr, "%d", invertido);
+    
+    int zerosFinais = 0;
+    int temp = numero;
+    
+    while (temp > 0 && temp % 10 == 0) {
+        zerosFinais++;
+        temp /= 10;
+    }
+    
+    for (int i = 0; i < zerosFinais; i++) {
+        printf("0");
+    }
+    
+    printf("%s\n", invertidoStr);
     
     return 0;
 }
