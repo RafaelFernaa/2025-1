@@ -15,11 +15,21 @@ int inverterNumero(int numero) {
 }
 
 int main() {
-    int numero = 1234;
+    int numero;
+    
+    printf("=== Inversor de Números ===\n");
+    printf("Digite um número inteiro positivo: ");
+    scanf("%d", &numero);
+    
+    if (numero < 0) {
+        printf("Por favor, digite apenas números positivos.\n");
+        return 1;
+    }
+    
     int invertido = inverterNumero(numero);
     
-    printf("Original: %d\n", numero);
-    printf("Invertido: %d\n", invertido);
+    printf("Número original: %d\n", numero);
+    printf("Número invertido: %d\n", invertido);
     
     return 0;
 }
