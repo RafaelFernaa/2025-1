@@ -24,12 +24,21 @@ bool ehPrimo(int n) {
 }
 
 int main() {
-    int teste = 7;
-    if (ehPrimo(teste)) {
-        printf("%d é um número primo!\n", teste);
-    } else {
-        printf("%d não é um número primo.\n", teste);
+    int inicio, fim;
+    
+    printf("=== Verificador de Números Primos ===\n");
+    printf("Digite o início do intervalo: ");
+    scanf("%d", &inicio);
+    
+    printf("Digite o fim do intervalo: ");
+    scanf("%d", &fim);
+    
+    if (inicio > fim) {
+        printf("Erro: O início do intervalo não pode ser maior que o fim.\n");
+        return 1;
     }
+    
+    printf("Analisando o intervalo [%d, %d]...\n", inicio, fim);
     
     return 0;
 }
