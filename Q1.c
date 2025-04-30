@@ -25,6 +25,7 @@ bool ehPrimo(int n) {
 
 int main() {
     int inicio, fim;
+    int contador = 0;
     
     printf("=== Verificador de Números Primos ===\n");
     printf("Digite o início do intervalo: ");
@@ -38,7 +39,24 @@ int main() {
         return 1;
     }
     
-    printf("Analisando o intervalo [%d, %d]...\n", inicio, fim);
+    printf("\nNúmeros primos no intervalo [%d, %d]:\n", inicio, fim);
+    
+    for (int num = inicio; num <= fim; num++) {
+        if (ehPrimo(num)) {
+            printf("%d ", num);
+            contador++;
+            
+            if (contador % 10 == 0) {
+                printf("\n");
+            }
+        }
+    }
+    
+    if (contador % 10 != 0) {
+        printf("\n");
+    }
+    
+    printf("\nTotal de números primos encontrados: %d\n", contador);
     
     return 0;
 }
