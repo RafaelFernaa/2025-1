@@ -21,3 +21,12 @@ int main() {
         }
         printf("\n");
     }
+    
+    for (i = 0; i < 4; i++) {
+        soma += matriz[i][j]; 
+    }
+    
+    printf("\nA soma da diagonal principal é: %d\n", soma);
+    
+    return 0;
+}
