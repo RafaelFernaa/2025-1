@@ -23,7 +23,7 @@ int main() {
     }
     
     for (i = 0; i < 4; i++) {
-        soma += matriz[i][j]; 
+        soma += matriz[i][i]; 
     }
     
     printf("\nA soma da diagonal principal é: %d\n", soma);
