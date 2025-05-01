@@ -26,3 +26,27 @@ void adicionarContato(struct Contato agenda[], int *totalContatos) {
         printf("Agenda cheia!\n");
     }
 }
+
+void buscarContato(struct Contato agenda[], int totalContatos) {
+    char nomeBusca[50];
+    int encontrado = 0;
+    
+    printf("\nBuscar contato\n");
+    printf("Digite o nome para busca: ");
+    scanf(" %[^\n]", nomeBusca);
+    
+    for (int i = 0; i < totalContatos; i++) {
+        if (strcmp(agenda[i].nome, nomeBusca) == 0) {
+            printf("\nContato encontrado:\n");
+            printf("Nome: %s\n", agenda[i].nome);
+            printf("Telefone: %s\n", agenda[i].telefone);
+            printf("Email: %s\n", agenda[i].email);
+            encontrado = 1;
+            break;
+        }
+    }
+    
+    if (!encontrado) {
+        printf("Contato nao encontrado!\n");
+    }
+}
