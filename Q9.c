@@ -66,3 +66,38 @@ void exibirTodos(struct Contato agenda[], int totalContatos) {
         printf("--------------------\n");
     }
 }
+
+int main() {
+    struct Contato agenda[100];
+    int totalContatos = 0;
+    int opcao;
+    
+    do {
+        printf("\n==== AGENDA DE CONTATOS ====\n");
+        printf("1. Adicionar contato\n");
+        printf("2. Buscar contato por nome\n");
+        printf("3. Exibir todos os contatos\n");
+        printf("0. Sair\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+        
+        switch (opcao) {
+            case 1:
+                adicionarContato(agenda, &totalContatos);
+                break;
+            case 2:
+                buscarContato(agenda, totalContatos);
+                break;
+            case 3:
+                exibirTodos(agenda, totalContatos);
+                break;
+            case 0:
+                printf("Saindo da agenda...\n");
+                break;
+            default:
+                printf("Opcao invalida!\n");
+        }
+    } while (opcao != 0);
+    
+    return 0;
+}
