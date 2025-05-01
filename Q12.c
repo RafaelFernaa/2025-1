@@ -8,11 +8,21 @@ int ehPalindromo(char texto[]) {
     int fim = tamanho - 1;
     
     while (inicio < fim) {
-        if (texto[inicio] != texto[fim]) {
-            return 0;
+        while (inicio < tamanho && !isalnum(texto[inicio])) {
+            inicio++;
         }
-        inicio++;
-        fim--;
+        
+        while (fim >= 0 && !isalnum(texto[fim])) {
+            fim--;
+        }
+        
+        if (inicio < fim) {
+            if (tolower(texto[inicio]) != tolower(texto[fim])) {
+                return 0;
+            }
+            inicio++;
+            fim--;
+        }
     }
     
     return 1;
@@ -22,7 +32,12 @@ int main() {
     char texto[100];
     
     printf("Digite uma palavra ou frase: ");
-    scanf("%s", texto); 
+    fgets(texto, sizeof(texto), stdin);
+    
+    size_t len = strlen(texto);
+    if (len > 0 && texto[len-1] == '\n') {
+        texto[len-1] = '\0';
+    }
     
     if (ehPalindromo(texto)) {
         printf("\"%s\" é um palíndromo.\n", texto);
