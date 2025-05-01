@@ -32,3 +32,39 @@ void ordenarVetor(int vetor[], int tamanho) {
         }
     }
 }
+
+int main() {
+    int tamanho;
+    
+    printf("Digite o tamanho do vetor: ");
+    scanf("%d", &tamanho);
+    
+    int vetor[tamanho];
+    
+    printf("Digite os elementos do vetor:\n");
+    for (int i = 0; i < tamanho; i++) {
+        printf("Elemento %d: ", i + 1);
+        scanf("%d", &vetor[i]);
+    }
+    
+    ordenarVetor(vetor, tamanho);
+    
+    printf("\nVetor ordenado: ");
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d ", vetor[i]);
+    }
+    
+    int chave;
+    printf("\n\nDigite o valor que deseja buscar: ");
+    scanf("%d", &chave);
+    
+    int resultado = buscaBinaria(vetor, tamanho, chave);
+    
+    if (resultado != -1) {
+        printf("Valor %d encontrado na posição %d do vetor ordenado.\n", chave, resultado);
+    } else {
+        printf("Valor %d não encontrado no vetor.\n", chave);
+    }
+    
+    return 0;
+}
