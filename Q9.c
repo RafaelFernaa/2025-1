@@ -50,3 +50,19 @@ void buscarContato(struct Contato agenda[], int totalContatos) {
         printf("Contato nao encontrado!\n");
     }
 }
+
+void exibirTodos(struct Contato agenda[], int totalContatos) {
+    if (totalContatos == 0) {
+        printf("\nAgenda vazia!\n");
+        return;
+    }
+    
+    printf("\nLista de Contatos:\n");
+    for (int i = 0; i < totalContatos; i++) {
+        printf("\nContato %d:\n", i + 1);
+        printf("Nome: %s\n", agenda[i].nome);
+        printf("Telefone: %s\n", agenda[i].telefone);
+        printf("Email: %s\n", agenda[i].email);
+        printf("--------------------\n");
+    }
+}
