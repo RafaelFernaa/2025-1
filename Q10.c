@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int fibonacci(int n) {
-    if (n == 0) {
+    if (n <= 0) {
         return 0;
     }
     
@@ -21,7 +21,7 @@ int main() {
     printf("Sequencia de Fibonacci com %d termos:\n", n);
     
     for (i = 0; i < n; i++) {
-        printf("%d ", fibonacci(i - 1)); 
+        printf("%d ", fibonacci(i)); 
     }
     
     printf("\n\nO %d-esimo termo da sequencia eh: %d\n", n, fibonacci(n));
