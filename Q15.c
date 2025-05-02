@@ -109,3 +109,23 @@ while (erros < MAX_TENTATIVAS && !acertou) {
         if (erros == MAX_TENTATIVAS) {
             break;
         }
+
+printf("Digite uma letra: ");
+        scanf(" %c", &letra);
+        letra = tolower(letra);
+        
+        if (letra < 'a' || letra > 'z') {
+            printf("Por favor, digite apenas letras!\n");
+            printf("Pressione Enter para continuar...");
+            getchar(); getchar();
+            continue;
+        }
+        
+        if (letrasUsadas[letra - 'a']) {
+            printf("Você já tentou esta letra!\n");
+            printf("Pressione Enter para continuar...");
+            getchar(); getchar();
+            continue;
+        }
+        
+        letrasUsadas[letra - 'a'] = 1;
