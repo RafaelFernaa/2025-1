@@ -83,3 +83,29 @@ int main() {
     
     printf("=== JOGO DA FORCA ===\n");
     printf("Adivinhe a palavra!\n");
+
+while (erros < MAX_TENTATIVAS && !acertou) {
+        limparTela();
+        
+        printf("=== JOGO DA FORCA ===\n");
+        desenharForca(erros);
+        
+        printf("\nPalavra: ");
+        for (i = 0; i < strlen(palavra); i++) {
+            printf("%c ", palavraOculta[i]);
+        }
+        printf("\n");
+        
+        printf("Letras usadas: ");
+        for (i = 0; i < 26; i++) {
+            if (letrasUsadas[i]) {
+                printf("%c ", 'a' + i);
+            }
+        }
+        printf("\n");
+        
+        printf("Tentativas restantes: %d\n", MAX_TENTATIVAS - erros);
+        
+        if (erros == MAX_TENTATIVAS) {
+            break;
+        }
