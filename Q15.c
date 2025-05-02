@@ -153,3 +153,22 @@ int encontrou = 0;
             }
         }
     }
+
+limparTela();
+    printf("=== JOGO DA FORCA ===\n");
+    desenharForca(erros);
+    
+    printf("\nPalavra: ");
+    for (i = 0; i < strlen(palavra); i++) {
+        printf("%c ", palavra[i]);
+    }
+    printf("\n");
+    
+    if (acertou) {
+        printf("\nParabéns! Você acertou a palavra: %s\n", palavra);
+    } else {
+        printf("\nVocê perdeu! A palavra era: %s\n", palavra);
+    }
+    
+    return 0;
+}
