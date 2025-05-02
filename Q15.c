@@ -129,3 +129,27 @@ printf("Digite uma letra: ");
         }
         
         letrasUsadas[letra - 'a'] = 1;
+
+int encontrou = 0;
+        for (i = 0; i < strlen(palavra); i++) {
+            if (palavra[i] == letra) {
+                palavraOculta[i] = letra;
+                encontrou = 1;
+            }
+        }
+        
+        if (!encontrou) {
+            erros++;
+            printf("Letra incorreta!\n");
+            printf("Pressione Enter para continuar...");
+            getchar(); getchar();
+        }
+        
+        acertou = 1;
+        for (i = 0; i < strlen(palavra); i++) {
+            if (palavraOculta[i] == '_') {
+                acertou = 0;
+                break;
+            }
+        }
+    }
