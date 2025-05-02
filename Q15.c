@@ -61,3 +61,25 @@ void desenharForca(int erros) {
     printf("  |\n");
     printf("__|__\n");
 }
+
+int main() {
+    srand(time(NULL));
+    
+    char letra;
+    char letrasUsadas[26] = {0};
+    char palavraOculta[MAX_PALAVRA];
+    int erros = 0;
+    int acertou = 0;
+    int i;
+    
+    int indice = rand() % total_palavras;
+    char palavra[MAX_PALAVRA];
+    strcpy(palavra, palavras[indice]);
+    
+    for (i = 0; i < strlen(palavra); i++) {
+        palavraOculta[i] = '_';
+    }
+    palavraOculta[strlen(palavra)] = '\0';
+    
+    printf("=== JOGO DA FORCA ===\n");
+    printf("Adivinhe a palavra!\n");
