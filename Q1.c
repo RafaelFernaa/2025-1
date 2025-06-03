@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-
+//teste
 bool ehPrimo(int n) {
     if (n <= 1) {
         return false;
